@@ -8,8 +8,9 @@ class HomePage extends Component {
 
   render() {
     return (
-      <div>
-        <h2>Hi I'm the home page</h2>
+      <div className="home-page">
+        <h2 className="title">ScoreRecorder</h2>
+        <p>Keep your scores tracked</p>
         <Link to="/info">
           <button>Start</button>
         </Link>

@@ -48,19 +48,17 @@ class GameInfo extends Component {
             }
           </ul>
 
-          <Route render={({ history}) => (
+          {/* <Route render={({ history}) => (
             <button
               onClick={() => { history.push('/score') }}
             >
           Click Me!
         </button>
-          )} />
+          )} /> */}
 
-          {/* <button>
-          <Link
-            to='/score'
-          >Next</Link>
-          </button> */}
+          <button>
+            Next
+          </button>
           
         </form>
       </div>

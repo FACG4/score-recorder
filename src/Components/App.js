@@ -9,6 +9,8 @@ import ScoreTable from './ScoresTable';
 import HomePage from './HomePage';
 import GameInfo from './GameInfo';
 
+import './style.css'
+
 class App extends Component {
   constructor() {
     super()
@@ -61,26 +63,17 @@ class App extends Component {
     return (
       <div className="App">
         <Route exact path='/' render={() => (
-          // <div>
-          //   <h2>Hi I'm the home page</h2>
-          //   <Link to="/info">
-          //     <button>Start</button>
-          //   </Link>
-          // </div>
           <HomePage />
         )}/>
         <Route path="/info" render={() => (
           <div>
-            {/* <Header />
-            <GameName /> */}
-            {/* <AllPlayers playersInputs={this.handlePlayersNo} playersNo={this.state.arr} addPlayers={this.addPlayers}/> */}
             <GameInfo playersInputs={this.handlePlayersNo} playersNo={this.state.arr} addPlayers={this.addPlayers}/>
           </div>
         )}/>
         <Route path="/score" render={() => (
           <div>
             <Header />
-            <ScoreTable />
+            <ScoreTable players={this.state.players}/>
           </div>
         )}/>
       </div>
