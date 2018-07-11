@@ -7,7 +7,6 @@ class ScoreTable extends Component {
   render() {
     return (
       <div>
-        Hi
       </div>
     )
   }

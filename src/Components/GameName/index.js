@@ -7,7 +7,7 @@ class GameName extends Component {
   render() {
     return (
       <div>
-        <h2>Enter Game Name</h2>
+        <h2 className='gameName'>Enter Game Name</h2>
         <input type="text" placeholder="Enter the game name"/>
       </div>
     )

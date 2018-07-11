@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import contact from './AllPlayers';
 
 import './style.css';
 
@@ -6,17 +7,23 @@ class AllPlayers extends Component {
   render() {
     return (
       <div>
-        <h3>No. of players</h3>
-        <input type="number" min="2" max="8"/>
+      
+        {/* <input type="number" min="2" max="8"/> */}
+  
         <ul>
-          <li><input type="text" placeholder="Enter player name"/></li>
-          <li><input type="text" placeholder="Enter player name"/></li>
-          <li><input type="text" placeholder="Enter player name"/></li>
-          <li><input type="text" placeholder="Enter player name"/></li>
+          {/* {this.props.contact.map((contact)=>{
+          return<Contact contact={contact} Key={
+            contact.id}/>
+          }
+         )}
+      */}
         </ul>
       </div>
+
     )
-  } 
+       
+    
+    } 
 }
 
 export default AllPlayers;
