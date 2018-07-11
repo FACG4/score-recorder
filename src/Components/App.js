@@ -1,84 +1,111 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom';
-
+import './style.css';
 
 import Header from './Header';
-// import GameName from './GameName';
-// import AllPlayers from './AllPlayers';
-import ScoreTable from './ScoresTable';
-import HomePage from './HomePage';
-import GameInfo from './GameInfo';
-
-import './style.css'
+import GameName from './GameInfo/GameName';
 
 class App extends Component {
-  constructor() {
-    super()
+  constructor(props){
+    super(props);
     this.state = {
-      gameName: '',
-      numberOfPlayers: 0,
-      players:[{
-        id:0,
-        name: 'John',
-        score: 0
-      }],
-      selectedId: 0,
-      arr:[]
-    }
-    this.handlePlayersNo = this.handlePlayersNo.bind(this);
-    this.addPlayers = this.addPlayers.bind(this);
+    gameName: '',
+    numberOfPlayers: 0,
+    players:[],
+    selectedId: 0,
+    playerName: ''
+    
   }
+  this.handeleDecrement = this.handeleDecrement.bind(this);
+  this.handeleIncrement = this.handeleIncrement.bind(this);
+  this.handleInputChange = this.handleInputChange.bind(this)
+  this.handleGameNameChange = this.handleGameNameChange.bind(this)
+  this.handleSubmit = this.handleSubmit.bind(this)
+}
+handleGameNameChange = (event)=>{
+  event.preventDefault()
+  this.setState({
+   gameName:event.target.value
+  })
+}
 
-  handlePlayersNo(event) {
-    this.setState({
-      numberOfPlayers: event.target.value,
-      arr:this.state.arr.length<event.target.value? this.state.arr.concat(1): this.state.arr.slice(1)
-    })
-  }
+handleInputChange = (event)=>{
+  event.preventDefault()
+  this.setState({
+   playerName:event.target.value
+  })
+}
+handeleIncrement(){
+  this.setState({
+    numberOfPlayers:this.state.numberOfPlayers +1
+
+  })
+}
+handeleDecrement(){
+  this.setState({
+    numberOfPlayers:this.state.numberOfPlayers -1
+  })
+  
+}
+handleSubmit = (event)=>{
+  event.preventDefault()
+  const data = this.state
+  console.log(JSON.stringify(data))
+
+}
 
   addPlayers(value) {
     this.setState({
       players: this.state.players.concat(value)
     })
-    // console.log('array',value);
-    // value.map(player => {
-    //   return this.setState({
-    //     players: this.state.players.concat(player)
-    //   })
-    // })
+    
   }
 
-  // createContact(contact) {
-  //   ContactsAPI.create(contact).then(contact => {
-  //     this.setState(state => ({
-  //       contacts: state.contacts.concat([ contact ])
-  //     }))
-  //   })
-  // }
   
 
  
 
   render() {
+    const { numberOfPlayers } = this.state;
+    const numberOfInputs = [];
+    for (let i=0; i<numberOfPlayers; i++) {
+      numberOfInputs.push(
+        <p>
+          <input type="text"  placeholder='Enter Player Name' name ='playerName' onChange={this.handleInputChange} />
+        </p>
+      )
+    }
     return (
       <div className="App">
-        <Route exact path='/' render={() => (
-          <HomePage />
-        )}/>
-        <Route path="/info" render={() => (
-          <div>
-            <GameInfo playersInputs={this.handlePlayersNo} playersNo={this.state.arr} addPlayers={this.addPlayers}/>
-          </div>
-        )}/>
-        <Route path="/score" render={() => (
-          <div>
-            <Header />
-            <ScoreTable players={this.state.players}/>
-          </div>
-        )}/>
+      
+        <Header />
+        <div className="body">
+        <h2>Enter Game Name</h2>
+      
+        <input type="text" placeholder="Enter the game name" name='gameName' onChange={this.handleGameNameChange}/>
+      </div>
+      <br></br>
+        <p> playerName : {this.players}</p>
+        <div className='input-number'>
+          <button  className="plus" onClick={this.handeleIncrement}>+</button>
+          <input className="input-number" type='number'/>
+          <button className="minus" onClick={this.handeleDecrement}>-</button>
+        </div>
+        {/* <div>
+         <button  className="plus" onClick={this.handeleIncrement}>+</button>
+         <button className="minus" onClick={this.handeleDecrement}>-</button>
+         
+       </div> */}
+        <br></br>
+        <form onSubmit = {this.handleSubmit} />
+        {numberOfInputs}
+       
+       <br></br>
+       <button className="next" onClick= {this.handleSubmit} >Next</button>
+    
       </div>
     );
   }
 }
-
-export default App;
+  export default App; 
+  

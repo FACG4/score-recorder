@@ -6,13 +6,7 @@ import Header from '../Header';
 import GameName from './GameName.js';
 import './style.css';
 
-// const WrappedLink = () => {
-//   return (
-//     <button>
-//       <Link style={{display: 'block', height: '100%'}} />
-//     </button>
-//   )
-// }
+
 
 class GameInfo extends Component {
 

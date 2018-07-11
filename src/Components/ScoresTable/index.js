@@ -7,6 +7,8 @@ class ScoreTable extends Component {
   render() {
     return (
       <div>
+<<<<<<< HEAD
+=======
         <h2>Game One</h2>
         <table>
           <tr>
@@ -20,6 +22,7 @@ class ScoreTable extends Component {
             </tr>
           ))}
         </table>
+>>>>>>> d3841ae7677164eb5e826db513d310f477c7ced6
       </div>
     )
   }
