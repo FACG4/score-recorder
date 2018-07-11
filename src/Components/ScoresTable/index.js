@@ -7,7 +7,7 @@ class ScoreTable extends Component {
   render() {
     return (
       <div>
-        Hi
+        <h2>{this.props.game}</h2>
       </div>
     )
   }
