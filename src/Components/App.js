@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route, Link } from 'react-router-dom';
+import './style.css';
 
 import Header from './Header';
-import GameName from './GameName';
+import GameName from './GameInfo/GameName';
 
 class App extends Component {
   constructor(props){
@@ -52,6 +54,17 @@ handleSubmit = (event)=>{
 
 }
 
+  addPlayers(value) {
+    this.setState({
+      players: this.state.players.concat(value)
+    })
+    
+  }
+
+  
+
+ 
+
   render() {
     const { numberOfPlayers } = this.state;
     const numberOfInputs = [];
@@ -66,20 +79,29 @@ handleSubmit = (event)=>{
       <div className="App">
       
         <Header />
-        <div>
+        <div className="body">
         <h2>Enter Game Name</h2>
+      
         <input type="text" placeholder="Enter the game name" name='gameName' onChange={this.handleGameNameChange}/>
       </div>
+      <br></br>
         <p> playerName : {this.players}</p>
+        <div className='input-number'>
+          <button  className="plus" onClick={this.handeleIncrement}>+</button>
+          <input className="input-number" type='number'/>
+          <button className="minus" onClick={this.handeleDecrement}>-</button>
+        </div>
+        {/* <div>
+         <button  className="plus" onClick={this.handeleIncrement}>+</button>
+         <button className="minus" onClick={this.handeleDecrement}>-</button>
+         
+       </div> */}
         <br></br>
         <form onSubmit = {this.handleSubmit} />
         {numberOfInputs}
-       <div>
-         <button  className = "onclick" onClick={this.handeleIncrement}>+</button>
-         <button className = "onclick" onClick={this.handeleDecrement}>-</button>
-       </div>
+       
        <br></br>
-        <p><button onClick= {this.handleSubmit} >Next</button></p>
+       <button className="next" onClick= {this.handleSubmit} >Next</button>
     
       </div>
     );
