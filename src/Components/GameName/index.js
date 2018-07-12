@@ -1,14 +1,13 @@
 import React , { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
 
-// import './style.css';
+import './style.css';
 
 class GameName extends Component {
 
   render() {
     return (
       <div>
-        <h2 className='gameName'>Enter Game Name</h2>
+        <h2 >Enter Game Name</h2>
         <input type="text" placeholder="Enter the game name"/>
       </div>
     )

@@ -4,7 +4,7 @@ import './style.css';
 
 import Header from './Header';
 import GameName from './GameInfo/GameName';
-
+import WinnerPage from './WinnerPage';
 class App extends Component {
   constructor(props){
     super(props);
@@ -13,14 +13,17 @@ class App extends Component {
     numberOfPlayers: 0,
     players:[],
     selectedId: 0,
-    playerName: ''
+    playerName: '',
+    Results:''
     
   }
   this.handeleDecrement = this.handeleDecrement.bind(this);
   this.handeleIncrement = this.handeleIncrement.bind(this);
-  this.handleInputChange = this.handleInputChange.bind(this)
-  this.handleGameNameChange = this.handleGameNameChange.bind(this)
-  this.handleSubmit = this.handleSubmit.bind(this)
+  this.handleInputChange = this.handleInputChange.bind(this);
+  this.handleGameNameChange = this.handleGameNameChange.bind(this);
+  this.handleSubmit = this.handleSubmit.bind(this);
+ this.handleResults = this.handleResults.bind(this)
+
 }
 handleGameNameChange = (event)=>{
   event.preventDefault()
@@ -60,10 +63,12 @@ handleSubmit = (event)=>{
     })
     
   }
-
-  
-
- 
+  handleResults = (event)=>{
+    event.preventDefault()
+    this.setState({
+  Results:event.target.value
+    }
+    )}
 
   render() {
     const { numberOfPlayers } = this.state;
@@ -102,7 +107,7 @@ handleSubmit = (event)=>{
        
        <br></br>
        <button className="next" onClick= {this.handleSubmit} >Next</button>
-    
+       <WinnerPage />
       </div>
     );
   }
