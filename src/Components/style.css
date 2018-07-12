@@ -1,8 +1,4 @@
-/* * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-} */
+
 
 .App {
   text-align: center;
@@ -14,7 +10,7 @@
 
 }
 .input-number{
-  /* position: relative; */
+
   display: inline-block;
 
 
@@ -37,7 +33,7 @@
   input[type=text], select, textarea {
     width: 40%;
     padding: 12px;
-    /* border: 3px solid #ccc; */
+ 
     border-radius: 30px;
     resize: vertical;
     margin-top: 10px;
@@ -60,12 +56,10 @@
 .minus{
   display: inline-block;
   
-  /* position: absolute;
-  top: 1px; */
-  /* right: 496px; */
+  
   width: 24px;
   background-color: red;
-  /* border-radius: 15px; */
+
   color: white;
 
   text-align: x;
